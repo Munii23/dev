@@ -1,0 +1,85 @@
+#toursToolBar .label-tours, #toursToolBar .button {
+    -fx-background-color: #0078d7;
+    -fx-border-width: 1 1 1 1;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 4 10 0 10; /* Reduced bottom padding to 0 */
+    -fx-border-radius: 5; /* Optional for rounded corners */
+    -fx-border-color: darkblue;
+    -fx-background-radius: 5; /* Match this with -fx-border-radius if used */
+}
+
+#toursToolBar {
+    -fx-background-color: linear-gradient(to top, #0078d7 25%, white 25%);
+    -fx-padding: 2px 4px; /* Reduced padding at top and bottom */
+    -fx-border-color: transparent transparent #0078d7 transparent; /* Top Right Bottom Left */
+    -fx-border-width: 0 0 2 0; /* Top Right Bottom Left - 2px border at the bottom */
+    -fx-content-display: top; /* This will align the toolbar content to the top */
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: #0078d7; /* Your preferred shade of blue */
+    -fx-text-fill: white; /* This will change the text color to white */
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .tab-label {
+    -fx-text-fill: white; /* Ensures the text in the selected tab is white */
+    -fx-background-color: #0078d7; /* Your preferred shade of blue */
+
+}
+.tab-pane > .tab-content-area {
+    -fx-border-color: #0078d7 transparent transparent transparent;
+    -fx-border-width: 10 0 0 0; /* 2px border at the top */
+    -fx-background-radius: 5; /* Match this with -fx-border-radius if used */
+
+}
+.menu-bar {
+    -fx-background-color: #ececec; /* Or any color you prefer for the MenuBar */
+}
+
+.menu-bar .menu {
+    -fx-background-color: transparent;
+    -fx-padding: 5 10 5 10;
+    -fx-pref-width: 10000;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 0 1 0 0;
+    -fx-border-style: solid;
+}
+
+.menu-bar .menu:hover {
+    -fx-background-color: #0078d7; /* Your preferred shade of blue */
+}
+
+.menu-bar .menu .label {
+    -fx-content-display: top;
+    -fx-alignment: center;
+}
+
+
+.table-view {
+    -fx-base: #f4f4f4; /* light row color */
+    -fx-control-inner-background: #e2f4d7; /* dark row color */
+    -fx-control-inner-background-alt: derive(-fx-control-inner-background, 30%); /* slightly darker for alternate rows */
+    -fx-accent: #ced597; /* color when the row is selected */
+}
+
+.table-view .column-header-background .label {
+    -fx-background-color: #9abf88; /* green background for the header */
+    -fx-text-fill: white; /* text color for the header */
+}
+
+.table-view .table-row-cell:filled:even {
+    -fx-background-color: #f4f4f4;
+    -fx-text-fill: black; /* text color */
+
+}
+
+.table-view .table-row-cell:filled:odd {
+    -fx-background-color: #e2f4d7;
+    -fx-text-fill: black; /* text color */
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #ced597; /* selection color */
+    -fx-table-cell-border-color: #9abf88; /* border color for selected cell */
+}

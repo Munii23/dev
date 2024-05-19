@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourplanner.controller.MainController">
+    <top>
+        <VBox>
+            <MenuBar BorderPane.alignment="CENTER">
+                <Menu fx:id="menuFile" text="File" />
+                <Menu fx:id="menuEdit" text="Edit" />
+                <Menu fx:id="menuOptions" text="Options" />
+                <Menu fx:id="menuSpacer" text=" " />
+                <Menu fx:id="menuSpacer2" text=" " />
+                <Menu fx:id="menuHelp" text="Help" />
+            </MenuBar>
+            <Button fx:id="calculateRoute" text="Calculate Route" onAction="#calculateRouteAndShowBrowser"/>
+            <TextField fx:id="searchBar" promptText="Search" onKeyReleased="#handleSearchBarKeyReleased"/>
+            <ListView fx:id="searchResults" prefHeight="100"/>
+            <HBox>
+                <Button fx:id="importToursButton" text="Import Tours" onAction="#handleImportToursButtonAction"/>
+                <Button fx:id="exportToursButton" text="Export Tours" onAction="#handleExportToursButtonAction"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.3">
+            <items>
+                <VBox VBox.vgrow="ALWAYS">
+                    <ToolBar id="toursToolBar">
+                        <items>
+                            <Label fx:id="labelTours" styleClass="label-tours" text="Tours" />
+                            <Pane HBox.hgrow="ALWAYS" />
+                            <Button fx:id="addTourButton" prefHeight="18.0" prefWidth="25.0" styleClass="button" text="+" onAction="#handleAddTourButtonAction"/>
+                            <Button fx:id="removeTourButton" prefHeight="24.0" prefWidth="21.0" styleClass="button" text="-" onAction="#handleRemoveTourButtonAction"/>
+                            <Button fx:id="moreTourOptionsButton" styleClass="button" text="..." />
+                        </items>
+                    </ToolBar>
+                    <ListView fx:id="tourList" VBox.vgrow="ALWAYS"/>
+                </VBox>
+
+                <VBox>
+                    <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS">
+                        <Tab fx:id="tabGeneral" closable="false" text="General">
+                            <AnchorPane fx:id="anchorPaneGeneral"/>
+                        </Tab>
+                        <Tab fx:id="tabRoute" closable="false" text="Route">
+                            <AnchorPane fx:id="anchorPaneRoute">
+                                <ImageView fx:id="imageViewRoute"/>
+                                <WebView fx:id="webView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                            </AnchorPane>
+                        </Tab>
+                        <Tab fx:id="tabMisc" closable="false" text="Misc">
+                            <AnchorPane fx:id="anchorPaneMisc"/>
+                        </Tab>
+                    </TabPane>
+                    <ToolBar id="toursLogsToolBar">
+                        <Label fx:id="labelTourLogs" styleClass="label-tours" text="Tour logs" />
+                        <Pane HBox.hgrow="ALWAYS" />
+                        <Button fx:id="addLogButton" styleClass="button" text="+" />
+                        <Button fx:id="removeLogButton" styleClass="button" text="-" />
+                        <Button fx:id="refreshLogButton" styleClass="button" text="refresh" />
+                        <Button fx:id="moreLogOptionsButton" styleClass="button" text="..." />
+                    </ToolBar>
+                    <TableView fx:id="tourLogsTable">
+                        <columns>
+                            <TableColumn fx:id="dateColumn" text="Date" />
+                            <TableColumn fx:id="durationColumn" text="Duration (hrs)" />
+                            <TableColumn fx:id="distanceColumn" text="Distance (km)" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>
